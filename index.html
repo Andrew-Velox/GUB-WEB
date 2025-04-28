@@ -24,9 +24,22 @@
           <div class="container-fluid">
             <img src="image/logo.png" alt="logo" class="img-fluid nav-logo">
             <a class="navbar-brand me-auto" href="#">Learning</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        
+            <!-- Mobile Dark Mode Button (only visible on mobile) -->
+            <div class="d-flex align-items-center d-lg-none me-2 mt-0">
+              <button class="drk-btn " id="drk-btn" type="button" onclick="dark_mode_x()">
+                <i class="fa-regular fa-moon pt-2"></i>
+              </button>
+            </div>
+        
+            <!-- Hamburger (Three dots) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+        
+            <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav m-auto mb-2 gap-5 mb-lg-0 pe-5">
                 <li class="nav-item">
@@ -39,13 +52,19 @@
                   <a class="nav-link active" href="#About">About</a>
                 </li>
               </ul>
-              <div class="dark-mode-btn">
-                <button class=" drk-btn me-3" id="drk-btn" type="submit" onclick="dark_mode_x()"><i class='fa-regular fa-moon pt-2'></i></button>
-
+        
+              <!-- Desktop Dark Mode Button (only visible on desktop) -->
+              <div class="dark-mode-btn d-none d-lg-flex align-items-center me-3">
+                <button class="drk-btn" id="drk-btn" type="button" onclick="dark_mode_x()">
+                  <i class="fa-regular fa-moon pt-2"></i>
+                </button>
               </div>
+        
               <form class="d-flex">
-                <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-magnifying-glass mt-2"></i></button>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-dark" type="submit">
+                  <i class="fa-solid fa-magnifying-glass mt-2"></i>
+                </button>
               </form>
             </div>
           </div>
