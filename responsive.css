@@ -1,0 +1,26 @@
+@media (max-width: 991px) {
+    .top-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+    .lft-sec, .mid-sec, .rght-sec {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    .dark-mode-btn, .d-flex {
+        margin-top: 1rem;
+    }
+    .info-cart {
+        margin-bottom: 1rem;
+    }
+    .more-info {
+        flex-direction: column;
+        align-items: center;
+    }
+}
