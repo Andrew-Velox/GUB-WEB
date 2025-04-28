@@ -26,17 +26,15 @@ function initVanta(isDarkMode) {
 initVanta(false);
 
 
-function dark_mode_x(){
-
+function dark_mode_x() {
     const isDarkMode = document.body.classList.contains("dark_mode");
     const newMode = !isDarkMode;
     document.body.classList.toggle("dark_mode", newMode);
 
     var elements = [
-        "head-sec", "navbar","nav-link", "lft-sec", "mid-sec", "rght-sec", "footer", "info-cart"
+        "head-sec", "navbar", "nav-link", "lft-sec", "mid-sec", "rght-sec", "footer", "info-cart"
     ];
 
-    // Loop over each element and toggle the dark_mode class
     elements.forEach(id => {
         var element = document.getElementsByClassName(id);
         if (element.length > 0) {
@@ -44,15 +42,26 @@ function dark_mode_x(){
         }
     });
 
-    // var footer = document.querySelector(".footer");
-    // footer.classList.toggle("dark_mode");
+    const darkButtons = document.querySelectorAll('.dark-toggle-btn');
+    darkButtons.forEach(btn => {
+        const icon = btn.querySelector('i');
 
+        if (newMode) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            btn.style.backgroundColor = "black";
+            btn.style.color = "white";
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            btn.style.backgroundColor = "white";
+            btn.style.color = "black";
+        }
+    });
 
     initVanta(newMode);
-    
-                
-                
-};
+}
+
 
 
 
