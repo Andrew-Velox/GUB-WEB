@@ -9,6 +9,12 @@
     }
 }
 
+@media (max-width:1590px) and ( min-width: 992px) {
+    .rght-sec{
+        width: 70% !important;
+    }
+}
+
 @media (max-width: 767px) {
     .navbar-nav {
         text-align: center;
