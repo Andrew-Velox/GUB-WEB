@@ -97,3 +97,90 @@ get_drk_btn.addEventListener("mouseout", () => {
 
 
 // console.log(get_drk_btn);
+
+
+const get_blg_btn=document.getElementById("blog_btn");
+
+const home_sec=document.getElementById("home-sec");
+const blog_sec=document.getElementById("blog-sec");
+
+blog_sec.style.display="none";
+get_blg_btn.addEventListener("click",()=>{
+    home_sec.style.display="none";
+    blog_sec.style.display="block";
+});
+
+const get_home_btn=document.getElementById("home-btn");
+
+get_home_btn.addEventListener("click",()=>{
+    home_sec.style.display="block";
+    blog_sec.style.display="none";
+});
+
+
+// console.log(itms);
+
+// for(const itm of itms){
+//     // console.log(itm);
+
+//     if(itm.innerText.includes("OOP")){
+//         console.log(itm.innerText);
+//     }
+// }
+
+
+
+const search_ref = () => {
+    
+    // const get_srch_btn=document.getElementById("search-btn");
+    const srch_val= document.getElementById("inpt").value;
+    // console.log(srch_val);
+    const ref_data=document.getElementById("ref-itms");
+    const itms = ref_data.getElementsByTagName("button")
+
+
+    // for(const itm of itms){
+    //     console.log(itm);
+    // }
+        
+        
+    if(srch_val==""){
+        const nt_fnd_div=document.getElementsByClassName("no-itm");
+        while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
+        for(const itm of itms) itm.style.display="block";
+        return;
+    }
+
+    let flag=false;
+    for(const itm of itms){
+        
+        // console.log(itm.innerText);
+        if(itm.innerText.toLocaleLowerCase().includes(srch_val.toLocaleLowerCase())){
+            flag=true;
+            // console.log(itm.innerText);
+            itm.style.display="block";
+        }
+        else{
+            itm.style.display="none";
+        }
+    }
+
+    if(!flag){
+        const div=document.createElement("div");
+        div.classList.add("no-itm");
+        div.innerHTML=`
+            <h2 class="text-center"> No Source Found!💔 </h2>
+        `;
+        ref_data.appendChild(div);
+    }
+    else if(flag){
+        const nt_fnd_div=document.getElementsByClassName("no-itm");
+        while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
+    }
+
+    document.getElementById("inpt").value="";
+        
+};
+
+
+
