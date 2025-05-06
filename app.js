@@ -130,7 +130,7 @@ get_home_btn.addEventListener("click",()=>{
 
 
 
-const search_ref = () => {
+// const search_ref = () => {
     const get_srch_btn=document.getElementById("search-btn");
     get_srch_btn.addEventListener("click",function(event){
 
@@ -187,7 +187,7 @@ const search_ref = () => {
         document.getElementById("inpt").value="";
     });
         
-};
-search_ref();
+// };
+// search_ref();
 
 
