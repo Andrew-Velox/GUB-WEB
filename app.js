@@ -131,60 +131,63 @@ get_home_btn.addEventListener("click",()=>{
 
 
 const search_ref = () => {
-    
-    // const get_srch_btn=document.getElementById("search-btn");
-    const srch_val= document.getElementById("inpt").value;
-    // console.log(srch_val);
-    const ref_data=document.getElementById("ref-itms");
-    const itms = ref_data.getElementsByTagName("button")
+    const get_srch_btn=document.getElementById("search-btn");
+    get_srch_btn.addEventListener("click",function(event){
+
+        event.preventDefault();
+        const srch_val= document.getElementById("inpt").value;
+        // console.log(srch_val);
+        const ref_data=document.getElementById("ref-itms");
+        const itms = ref_data.getElementsByTagName("button")
 
 
-    // for(const itm of itms){
-    //     console.log(itm);
-    // }
-        
-        
-    if(srch_val==""){
-        const nt_fnd_div=document.getElementsByClassName("no-itm");
-        while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
-        for(const itm of itms) itm.style.display="block";
-        return;
-    }
+        // for(const itm of itms){
+        //     console.log(itm);
+        // }
+            
+            
+        if(srch_val==""){
+            const nt_fnd_div=document.getElementsByClassName("no-itm");
+            while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
+            for(const itm of itms) itm.style.display="block";
+            return;
+        }
 
-    let flag=false;
-    for(const itm of itms){
-        
-        // console.log(itm.innerText);
-        if(itm.innerText.toLocaleLowerCase().includes(srch_val.toLocaleLowerCase())){
-            flag=true;
+        let flag=false;
+        for(const itm of itms){
+            
             // console.log(itm.innerText);
-            itm.style.display="block";
+            if(itm.innerText.toLocaleLowerCase().includes(srch_val.toLocaleLowerCase())){
+                flag=true;
+                // console.log(itm.innerText);
+                itm.style.display="block";
+            }
+            else{
+                itm.style.display="none";
+            }
         }
-        else{
-            itm.style.display="none";
+
+        if(!flag){
+            const nt_fnd_div=document.getElementsByClassName("no-itm");
+            while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
+
+
+            const div=document.createElement("div");
+            div.classList.add("no-itm");
+            div.innerHTML=`
+                <h2 class="text-center"> No Source Found!💔 </h2>
+            `;
+            ref_data.appendChild(div);
         }
-    }
+        else if(flag){
+            const nt_fnd_div=document.getElementsByClassName("no-itm");
+            while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
+        }
 
-    if(!flag){
-
-        const nt_fnd_div=document.getElementsByClassName("no-itm");
-        while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
-        
-        const div=document.createElement("div");
-        div.classList.add("no-itm");
-        div.innerHTML=`
-            <h2 class="text-center"> No Source Found!💔 </h2>
-        `;
-        ref_data.appendChild(div);
-    }
-    else if(flag){
-        const nt_fnd_div=document.getElementsByClassName("no-itm");
-        while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
-    }
-
-    document.getElementById("inpt").value="";
+        document.getElementById("inpt").value="";
+    });
         
 };
-
+search_ref();
 
 
