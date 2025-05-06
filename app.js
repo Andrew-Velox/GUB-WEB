@@ -166,6 +166,10 @@ const search_ref = () => {
     }
 
     if(!flag){
+
+        const nt_fnd_div=document.getElementsByClassName("no-itm");
+        while(nt_fnd_div.length > 0) nt_fnd_div[0].remove();
+        
         const div=document.createElement("div");
         div.classList.add("no-itm");
         div.innerHTML=`
